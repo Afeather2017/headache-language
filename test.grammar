@@ -1,0 +1,36 @@
++ - * / % = > < g s q n  ( ) , m i o a
+EX ER X' EB R' ER EP B' TE E' FA T' CA ER ES AP
+EX -> ER X'
+X' -> ''
+X' -> '=' ER X'
+ER -> EB R'
+R' -> 'a' EB ER
+R' -> 'o' EB ER
+R' -> ''
+EB -> EP B'
+B' -> '<' EP B'
+B' -> '>' EP B'
+B' -> 'g' EP B'
+B' -> 's' EP B'
+B' -> 'q' EP B'
+B' -> 'n' EP B'
+B' -> ''
+EP -> TE E'
+E' -> '+' TE E'
+E' -> '-' TE E'
+E' -> ''
+TE -> FA T'
+T' -> '*' FA T'
+T' -> '/' FA T'
+T' -> '%' FA T'
+T' -> ''
+FA -> 'i' CA
+FA -> '-' FA
+FA -> '(' ER ')'
+FA -> 'm'
+CA -> '(' ES ')'
+CA -> ''
+ES -> ER AP
+AP -> ',' ES
+AP -> ''
+

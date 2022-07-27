@@ -1,0 +1,18 @@
+Func Say(Var s, Var a, Var b) {
+	print(s);
+	print(a * b);
+	Var r;
+	Var c;
+	Var k;
+	r = 0;
+	while (r < 8) {
+		c = 0;
+		while (c != 8) {
+			k = print("\"Hello world\"\n");
+			c = c + 1;
+		}
+		print("\n");
+		r = r + 1;
+	}
+}
+Say("wdnmd", 1, 2);

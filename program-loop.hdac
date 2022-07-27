@@ -1,0 +1,12 @@
+Var k;
+k = 0;
+Var w;
+while (k < 10) {
+	w = 0;
+	while (w < 10) {
+		print(w);
+		w = w + 1;
+	}
+	print("\n");
+	k = k + 1;
+}

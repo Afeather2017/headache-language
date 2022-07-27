@@ -1,0 +1,9 @@
+Var i;
+Var k;
+i = 1 and --1 * 0 or 88 * 77 == 77 * 1;
+i = 1 + 1;
+k = 0;
+print(i);
+print(" ");
+print(k);
+print("\n");

@@ -1,0 +1,96 @@
+c i { } v f e l + - * / % > < g s a o q n = ; m ( ) , $ r
+B' EB EL EP ER EX FA FD IF LP PR R' ST T' TE VD VL VN CA ES AP E' SO X' RT BL
+SO
+SO -> PR '$'
+# 0 exit
+PR -> FD PR
+PR -> ST
+FD -> 'ci(' VL ')' '{' ST '}'
+# 0 func_back
+# 7 func %a:
+VL -> 'vi' VN
+# 0 pop %a
+# 0 alc %a
+VL -> ''
+VN -> ',' VL
+VN -> ''
+VD -> 'vi;'
+# 1 alc %a
+ST -> VD ST
+ST -> IF ST
+ST -> LP ST
+ST -> RT ST
+RT -> 'r' EX ';'
+# 1 ret
+ST -> EX ';' ST
+# 1 pop
+ST -> ''
+IF -> 'f(' EX ')' BL EL
+# 0 pop
+# 2 %i:
+# 2 if %l
+EL -> 'e' BL
+# 2 %n:
+# 1 ifn %l
+EL -> ''
+LP -> 'l(' EX ')' BL
+# 0 pop
+# 0 while_if -%t
+# 1 %w:
+# 1 while %l
+# 4 :%t
+BL -> '{' ST '}'
+# 0 back
+EX -> ER X'
+X' -> '=' ER X'
+# 0 pop %p
+X' -> ''
+ER -> EB R'
+R' -> 'a' EB R'
+# 1 and
+R' -> 'o' EB R'
+# 1 or
+R' -> ''
+EB -> EP B'
+B' -> '<' EP B'
+# 1 lt
+B' -> '>' EP B'
+# 1 gt
+B' -> 'g' EP B'
+# 1 ge
+B' -> 's' EP B'
+# 1 le
+B' -> 'q' EP B'
+# 1 eq
+B' -> 'n' EP B'
+# 1 ne
+B' -> ''
+EP -> TE E'
+E' -> '+' TE E'
+# 1 add
+E' -> '-' TE E'
+# 1 min
+E' -> ''
+TE -> FA T'
+T' -> '*' FA T'
+# 1 mul
+T' -> '/' FA T'
+# 1 div
+T' -> '%' FA T'
+# 1 mod
+T' -> ''
+FA -> 'i' CA
+FA -> '-' FA
+# 0 neg
+FA -> '(' ER ')'
+FA -> 'm'
+# 1 push %s
+CA -> '(' ES ')'
+# 0 call %p
+# 2 va_split
+CA -> ''
+# 0 push %p
+ES -> ER AP
+ES -> ''
+AP -> ',' ES
+AP -> ''

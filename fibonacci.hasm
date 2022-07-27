@@ -1,0 +1,39 @@
+IF0:
+push 1
+ret
+back
+IFN0:
+va_split
+push n
+push 1
+min
+call Fibonacci
+va_split
+push n
+push 2
+min
+call Fibonacci
+add
+ret
+back
+func Fibonacci:
+alc n
+pop n
+push n
+push 1
+eq
+push n
+push 2
+eq
+or
+if IF0
+ifn IFN0
+pop
+func_back
+va_split
+va_split
+push 10
+call Fibonacci
+call print
+pop
+exit
