@@ -1,0 +1,23 @@
++ - * / % ( ) m $
+S E E' T T' F
+S
+S -> E '$'
+E -> T E'
+E' -> '+' T E'
+# a add T1 T1 T0
+E' -> '-' T E'
+# a min T1 T1 T0
+E' -> ''
+T -> F T'
+T' -> '*' F T'
+# a mult T1 T1 T0
+T' -> '/' F T'
+# a div T1 T1 T0
+T' -> '%' F T'
+# a mod T1 T1 T0
+T' -> ''
+F -> 'm'
+# a push %s
+F -> '(' E ')'
+F -> '-' F
+# r min T0 0 T0

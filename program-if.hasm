@@ -1,0 +1,41 @@
+IF0:
+va_split
+push 1
+call print
+pop
+back
+IF1:
+va_split
+push k
+call print
+pop
+back
+IFN0:
+alc k
+va_split
+push "wdnmd"
+call print
+pop
+push k
+push 99
+push 77
+mul
+push 888
+neg
+min
+pop k
+pop
+push k
+if IF1
+pop
+back
+push 99
+push 88
+mul
+push 0
+neg
+mul
+if IF0
+ifn IFN0
+pop
+exit

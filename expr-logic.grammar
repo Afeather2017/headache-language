@@ -1,0 +1,20 @@
+c i { } s d f e l + - * / % > < g s a o q n = ; m ( ) ,
+EX FD IF LP PR ST VD VL VN EL
+PR
+PR -> FD
+PR -> ST
+FD -> 'ci(' VL '){' ST '}'
+VL -> 'si' VN
+VL -> 'di' VN
+VN -> ',VL'
+VN -> ''
+VD -> 'si;'
+VD -> 'di;'
+ST -> VD
+ST -> IF
+ST -> LP
+ST -> EX
+IF -> 'f(' EX '){' ST '}' EL
+EL -> 'e{' ST '}'
+LP -> 'l(' EX ';' EX ';' EX '){' ST '}'
+EX -> 'm'

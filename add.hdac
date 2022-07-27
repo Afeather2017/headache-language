@@ -1,0 +1,8 @@
+Func Add(Var a, Var b) {
+	return a + b;
+}
+Var a;
+Var b;
+a = -99;
+b = -99;
+exit(Add(a, b));

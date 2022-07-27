@@ -1,0 +1,15 @@
+push 7
+push 2
+min T1 T1 T0
+push 8
+min T1 T1 T0
+push 9
+min T1 T1 T0
+push 1
+push 2
+call func
+neg T0 T0
+neg T0 T0
+min T1 T1 T0
+push abc
+min T1 T1 T0

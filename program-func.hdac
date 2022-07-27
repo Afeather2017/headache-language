@@ -1,0 +1,9 @@
+Func Fibonacci(Var a) {
+	if (a == 1 or a == 2) {
+		return 1;
+	} else {
+		return Fibonacci(a - 1) +
+			Fibonacci(a - 2);
+	}
+}
+print(Fibonacci(9));

@@ -1,0 +1,10 @@
+if (99 * 88 * -0) {
+	print(1);
+} else {
+	Var k;
+	print("wdnmd");
+	k = (99 * 77 -- 888);
+	if (k) {
+		print(k);
+	}
+}

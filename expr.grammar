@@ -1,0 +1,52 @@
+m + - * / % ( ) $ i , < > g s q n a o = $ ,
+EP TE E' FA T' CA ES AP EB B' ER ST
+ST
+ST -> ER '$'
+ER -> EB R'
+R' -> 'a' EB R'
+# and T1 T1 T0
+R' -> 'o' EB R'
+# or T1 T1 T0
+R' -> ''
+EB -> EP B'
+B' -> '<' EP B'
+# lt T1 T1 T0
+B' -> '>' EP B'
+# gt T1 T1 T0
+B' -> 'g' EP B'
+# ge T1 T1 T0
+B' -> 's' EP B'
+# le T1 T1 T0
+B' -> 'q' EP B'
+# eq T1 T1 T0
+B' -> 'n' EP B'
+# ne T1 T1 T0
+B' -> ''
+EP -> TE E'
+E' -> '+' TE E'
+# add T1 T1 T0
+E' -> '-' TE E'
+# min T1 T1 T0
+E' -> ''
+TE -> FA T'
+T' -> '*' FA T'
+# mul T1 T1 T0
+T' -> '/' FA T'
+# div T1 T1 T0
+T' -> '%' FA T'
+# mod T1 T1 T0
+T' -> ''
+FA -> 'i' CA
+FA -> '-' FA
+# neg T0 T0
+FA -> '(' ER ')'
+FA -> 'm'
+# push %s
+CA -> '(' ES ')'
+# call %p
+CA -> ''
+# push %p
+ES -> ER AP
+ES -> ''
+AP -> ',' ES
+AP -> ''
