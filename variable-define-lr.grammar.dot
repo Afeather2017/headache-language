@@ -1,0 +1,22 @@
+digraph G {
+  0 [shape=box,label="I0\n<VD>->.vi;: v\n<ST>->.<VD>: $\n<ST>->.<VD>: v\n<VD>->.vi;: $\n_->.<PR>$: $\n<PR>->.<ST>: $\n<PR>->.<ST><PR>: $"];
+  1 [shape=box,label="I1\n<VD>->v.i;: $\n<VD>->v.i;: v"];
+  2 [shape=box,label="I2\n<ST>-><VD>.: v\n<ST>-><VD>.: $"];
+  3 [shape=box,label="I3\n_-><PR>.$: $"];
+  4 [shape=box,label="I4\n<VD>->.vi;: v\n<ST>->.<VD>: v\n<ST>->.<VD>: $\n<PR>-><ST>.: $\n<VD>->.vi;: $\n<PR>-><ST>.<PR>: $\n<PR>->.<ST>: $\n<PR>->.<ST><PR>: $"];
+  5 [shape=box,label="I5\n<VD>->vi.;: $\n<VD>->vi.;: v"];
+  6 [shape=box,label="I6\n_-><PR>$.: $"];
+  7 [shape=box,label="I7\n<PR>-><ST><PR>.: $"];
+  8 [shape=box,label="I8\n<VD>->vi;.: $\n<VD>->vi;.: v"];
+  0 -> 1 [label="v"];
+  0 -> 2 [label="<VD>"];
+  0 -> 3 [label="<PR>"];
+  0 -> 4 [label="<ST>"];
+  1 -> 5 [label="i"];
+  3 -> 6 [label="$"];
+  4 -> 1 [label="v"];
+  4 -> 2 [label="<VD>"];
+  4 -> 7 [label="<PR>"];
+  4 -> 4 [label="<ST>"];
+  5 -> 8 [label=";"];
+}

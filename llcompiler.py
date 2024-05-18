@@ -167,11 +167,12 @@ class LLCompiler:
         #Break()
         while True:
             lkh = self.Lookahead()
-            #print('Lookahead:', lkh)
+            print('\nparse:', [i[1] for i in self.type_words[self.current:]])
+            print('Lookahead:', lkh)
             if stack.Top() == lkh[0]:
                 self.Next()
                 stack.Pop()
-                # print(stack)
+                print('stack info:', stack)
             elif type(stack.Top()) == grammar.Variable:
                 v = stack.Pop()
                 if len(self.parser.table[v][lkh[0]]) == 0:
@@ -214,7 +215,7 @@ class LLCompiler:
                         length = len(stack) + offset + 1
                         top.Push(length)
                 stack.Push(p.right)
-                #print(p)
+                print('use production:', p)
             else:
                 print(self)
                 raise 'Compile failed'
@@ -227,7 +228,7 @@ class LLCompiler:
                 commands.append(inst.Pop())
                 top.Pop()
             if len(stack) == 0:
-                #print('Accept')
+                print('Accept')
                 break
         self.commands = commands
         self.CompilerModify()

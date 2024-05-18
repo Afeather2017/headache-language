@@ -27,7 +27,7 @@ class LLParser:
                 continue
             for follow in toolkit.Follow(p.left):
                 table[p.left][follow] |= {p}
-        #print(table)
+        print(table)
         self.table = table
         for v in self.table:
             for t in self.table[v]:

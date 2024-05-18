@@ -1,0 +1,7 @@
+v i ;
+PR ST
+PR
+PR -> ST PR
+PR -> ST
+ST -> VD
+VD -> 'vi;'

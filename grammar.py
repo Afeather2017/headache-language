@@ -122,6 +122,10 @@ class Production:
         return str(self) < str(a)
     def __hash__(self):
         return hash(str(self))
+    def __eq__(self, rhs):
+        if type(rhs) != type(self):
+            return False
+        return self.left == rhs.left and self.right == rhs.right
 class ProductionFilter:
     def __init__(self, productions):
         self.filter = {}
@@ -162,7 +166,7 @@ class Grammar:
         start = Variable(f.readline().replace('\n', ''))
         # After that: productions
         # Format: left -> variable 'terminals'
-        # And the first line is the start simbol
+        # And the first line is the start symbol
         productions = set()
         grammar_type = 3
         last = None
@@ -176,6 +180,9 @@ class Grammar:
                     if last not in opr:
                         opr[last] = []
                     opr[last].append(p)
+                continue
+            if p[0] == '##':
+                # comment, skip
                 continue
             state = 'l'
             left = []
@@ -276,11 +283,15 @@ class Toolkit:
         self.grammar = g
         print(g)
         self._Nullable(g)
-        #print('Nullable:', self.nullable)
+        print('Nullable:', self.nullable)
         self._First(g)
-        #print('First:', self.first)
+        print('First:')
+        for v, t in self.first.items():
+            print('{}: {}'.format(v, t))
         self._Follow(g)
-        #print('Follow:', self.follow)
+        print('Follow:')
+        for v, t in self.follow.items():
+            print('{}: {}'.format(v, t))
     def _First(self, g):
         q = {}
         for p in g.productions:

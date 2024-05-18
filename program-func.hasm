@@ -16,6 +16,49 @@ call Fibonacci
 add
 ret
 back
+WHILE1:
+va_split
+push r
+call print
+pop
+va_split
+push c
+call print
+pop
+va_split
+push " "
+call print
+pop
+push c
+push c
+push 1
+add
+pop c
+pop
+back
+WHILE0:
+push c
+push 0
+pop c
+pop
+:jmp1
+push c
+push b
+lt
+while WHILE1
+while_if jmp1
+pop
+va_split
+push "\n"
+call print
+pop
+push r
+push r
+push 1
+add
+pop r
+pop
+back
 func Fibonacci:
 alc a
 pop a
@@ -30,10 +73,38 @@ if IF0
 ifn IFN0
 pop
 func_back
+func PrintTable:
+alc b
+pop b
+alc a
+pop a
+alc r
+alc c
+push r
+push 0
+pop r
+pop
+:jmp0
+push r
+push a
+lt
+while WHILE0
+while_if jmp0
+pop
+func_back
 va_split
 va_split
 push 9
 call Fibonacci
 call print
+pop
+va_split
+push "\n"
+call print
+pop
+va_split
+push 5
+push 5
+call PrintTable
 pop
 exit

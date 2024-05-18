@@ -13,8 +13,9 @@ label_id = 'main'
 cmd_pos = 0
 def Nothing():
     pass
-debug = 'F'
-Break = ipdb.set_trace if debug == 'T' else Nothing
+# mode are F, T, B, means false, true, break
+debug = 'T'
+Break = ipdb.set_trace if debug == 'B' else Nothing
 reg = r'((?:"(?:(?:\\.)|[^"])*")|\d+|(?::{0,1}\w+:{0,1}))'
 for line in open(sys.argv[1]).read().split('\n'):
     cmd = re.findall(reg, line)
@@ -209,7 +210,7 @@ while True:
             while type(tmp_stack[-1]) != Spliter:
                 tmp_stack.pop()
             tmp_stack[-1] = ret
-        if cmd[1] == 'exit':
+        elif cmd[1] == 'exit':
             exit_val = T0
             break
         else:

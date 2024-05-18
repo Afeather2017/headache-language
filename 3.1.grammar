@@ -1,0 +1,19 @@
+ = m c ( ) + ,
+_ E L
+_
+# S → id := E
+# S → print ( L )
+# E → id
+# E → num
+# E → E + E
+# E → (S , E )
+# L → E
+# L → L , E
+_ -> 'i' '=' E
+_ -> 'c' '(' L ')'
+E -> 'i'
+E -> 'm'
+E -> E '+' E
+E -> '(' _ ',' E ')'
+L -> E
+L -> L ',' E

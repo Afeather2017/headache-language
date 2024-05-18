@@ -6,4 +6,22 @@ Func Fibonacci(Var a) {
 			Fibonacci(a - 2);
 	}
 }
+Func PrintTable(Var a, Var b) {
+  Var r;
+  Var c;
+  r = 0;
+  while (r < a) {
+    c = 0;
+    while (c < b) {
+      print(r);
+      print(c);
+      print(" ");
+      c = c + 1;
+    }
+    print("\n");
+    r = r + 1;
+  }
+}
 print(Fibonacci(9));
+print("\n");
+PrintTable(5, 5);

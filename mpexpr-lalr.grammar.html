@@ -1,0 +1,300 @@
+<pre><code>Grammar is:
+CFG:(V 3 = {T, F, E},
+T 5 = {+, (, ), *, m},
+P 7 = {E-&gt;T, _-&gt;E$, F-&gt;(E), T-&gt;F*T, E-&gt;T+E, F-&gt;m, T-&gt;F},
+S = E)
+</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>(</th>
+<th>)</th>
+<th>*</th>
+<th>+</th>
+<th>m</th>
+<th>$</th>
+<th>E</th>
+<th>F</th>
+<th>T</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>s 2</td>
+<td></td>
+<td></td>
+<td></td>
+<td>s 4</td>
+<td></td>
+<td>g 5</td>
+<td>g 3</td>
+<td>g 1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td>s 1</td>
+<td></td>
+<td>r E-&gt;T</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>s 10</td>
+<td></td>
+<td></td>
+<td></td>
+<td>s 9</td>
+<td></td>
+<td>g 11</td>
+<td>g 8</td>
+<td>g 2</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td></td>
+<td></td>
+<td>s 3</td>
+<td>r T-&gt;F</td>
+<td></td>
+<td>r T-&gt;F</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td></td>
+<td></td>
+<td>r F-&gt;m</td>
+<td>r F-&gt;m</td>
+<td></td>
+<td>r F-&gt;m</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>s 5</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>g 14</td>
+<td>g 6</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td></td>
+<td>r E-&gt;T</td>
+<td></td>
+<td>s 7</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td></td>
+<td>r T-&gt;F</td>
+<td>s 8</td>
+<td>r T-&gt;F</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td></td>
+<td>r F-&gt;m</td>
+<td>r F-&gt;m</td>
+<td>r F-&gt;m</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>g 17</td>
+<td></td>
+<td>g 10</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td></td>
+<td>s 11</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>g 12</td>
+<td>g 19</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>a None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>r E-&gt;T+E</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>g 20</td>
+<td></td>
+<td>g 15</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>s 16</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>g 21</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td></td>
+<td>s 17</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td></td>
+<td></td>
+<td>r F-&gt;(E)</td>
+<td>r F-&gt;(E)</td>
+<td></td>
+<td>r F-&gt;(E)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td></td>
+<td></td>
+<td></td>
+<td>r T-&gt;F*T</td>
+<td></td>
+<td>r T-&gt;F*T</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td></td>
+<td>r E-&gt;T+E</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td></td>
+<td>r T-&gt;F*T</td>
+<td></td>
+<td>r T-&gt;F*T</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td></td>
+<td>r F-&gt;(E)</td>
+<td>r F-&gt;(E)</td>
+<td>r F-&gt;(E)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>

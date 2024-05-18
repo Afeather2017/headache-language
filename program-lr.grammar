@@ -1,0 +1,69 @@
+c i { } v f e l + - * / % > < g s a o q n = ; m ( ) , $ r
+AG BL EA EB EL EM EX FA FD IF LP PR RT ST TE VD VL
+PR
+PR -> FD PR
+PR -> ST PR
+## Func ident(var a, var b) { print("???"); }
+FD -> 'ci(' VL ')' BL
+## BL the block
+BL -> '{' ST '}'
+## Func ident() { print("???"); }
+FD -> 'ci()' BL
+## Deal with argument list in (var a, var b ...)
+VL -> 'vi,' VL
+VL -> VL
+## var a;
+ST -> VD ST
+VD -> 'vi;'
+## if statement
+ST -> IF ST
+IF -> 'f(' EX ')' BL
+## if (expr) { ST } else { ST }
+IF -> 'f(' EX ')' BL EL
+## if (expr) { ST }
+EL -> 'e' BL
+## while loop statement
+ST -> LP ST
+## while (expr) { ST }
+LP -> 'l(' EX ')' BL
+## return value statement
+ST -> RT ST
+RT -> 'r' EX ';'
+## expression as statement
+ST -> EA ST
+## asign expression
+EA -> 'i=' EX ';'
+## and expression
+EX -> EB 'a' EX
+## or expression
+EX -> EB 'o' EX
+## convert to next level
+EX -> EB
+## >, <, <=, >=, !=, == expression
+EB -> EM '<' EB
+EB -> EM '>' EB
+EB -> EM 'g' EB
+EB -> EM 's' EB
+EB -> EM 'q' EB
+EB -> EM 'n' EB
+## convert to next level
+EB -> EM
+## +- math expression
+EM -> TE '-' EM
+EM -> TE '+' EM
+## convert to next level
+EM -> TE
+## */% math expression
+TE -> FA '*' TE
+TE -> FA '/' TE
+TE -> FA '%' TE
+## convert to next level
+TE -> FA
+## () expression
+FA -> '-' FA
+FA -> 'm'
+FA -> '(' EX ')'
+## call a function
+FA -> 'i(' AG ')'
+AG -> EX ',' EX
+AG -> EX

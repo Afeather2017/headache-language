@@ -1,0 +1,27 @@
+digraph G {
+  0 [shape=box,label="I0\nS->.CC: $\nC->.(C: )\nC->.): )\nC->.(C: (\n_->.S$: $\nC->.): ("];
+  1 [shape=box,label="I1\nS->C.C: $\nC->.): $\nC->.(C: $"];
+  2 [shape=box,label="I2\nC->.(C: )\nC->.): )\nC->(.C: )\nC->.(C: (\nC->(.C: (\nC->.): ("];
+  3 [shape=box,label="I3\nC->).: (\nC->).: )"];
+  4 [shape=box,label="I4\n_->S.$: $"];
+  5 [shape=box,label="I5\nS->CC.: $"];
+  6 [shape=box,label="I6\nC->).: $"];
+  7 [shape=box,label="I7\nC->.): $\nC->(.C: $\nC->.(C: $"];
+  8 [shape=box,label="I8\nC->(C.: )\nC->(C.: ("];
+  9 [shape=box,label="I9\n_->S$.: $"];
+  10 [shape=box,label="I10\nC->(C.: $"];
+  0 -> 1 [label="C"];
+  0 -> 2 [label="("];
+  0 -> 3 [label=")"];
+  0 -> 4 [label="S"];
+  1 -> 5 [label="C"];
+  1 -> 6 [label=")"];
+  1 -> 7 [label="("];
+  2 -> 2 [label="("];
+  2 -> 3 [label=")"];
+  2 -> 8 [label="C"];
+  4 -> 9 [label="$"];
+  7 -> 6 [label=")"];
+  7 -> 10 [label="C"];
+  7 -> 7 [label="("];
+}

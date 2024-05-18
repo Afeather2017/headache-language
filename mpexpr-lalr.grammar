@@ -1,0 +1,14 @@
+ * + ( ) m
+S E T F
+S
+S -> E
+# 0 call exit
+E -> T '+' E
+# 2 add
+E -> T
+T -> F '*' T
+# 2 mul
+T -> F
+F -> '(' E ')'
+F -> 'm'
+# 0 push %0

@@ -3,6 +3,7 @@ import ipdb
 import sys
 import grammar
 import re
+import time
 def ColorDelete(s):
     return re.sub('\033\[\d+m', '', s)
 line = sys._getframe
@@ -161,8 +162,16 @@ class LRParser:
                     continue
                 if psl.End() == False:
                     continue
-                if psl.lookahead in action[item_id]:
-                    raise 'This grammar is not LR(1)'
+                if psl.lookahead in action[item_id].items():
+                    raise Exception('This grammar is not LR(1) cuz' +
+                                    f'{psl.lookahead} not in {action[item_id]}')
+                    #type_info = [f'lookahead type: {type(psl.lookahead)}',
+                    #             'action[item_id]:']
+                    #for k, v in action[item_id]:
+                    #    type_info.append(f'{k} {type(k)}: {v} {type(v)}')
+                    #raise Exception('This grammar is not LR(1) cuz' +
+                    #                f'{psl.lookahead} not in {action[item_id]}'
+                    #                + 'type_info:\n' + '\n'.join(type_info))
                 p = grammar.Production(psl.left, psl.right)
                 action[item_id][psl.lookahead] = ('r', p)
         for item_id in range(len(self.T)):
@@ -208,8 +217,9 @@ class LRParser:
                         t = str(action[item_id][v])
                 else: # variables
                     if v in goto[item_id]:
-                        t = 'g' + str(goto[item_id][v])
+                        t = str(goto[item_id][v])
                 t = ColorDelete(t)
+                t = t[1:-1].replace(',', '').replace("'", '')
                 f.write(t + ' | ')
             f.write('\n')
         f.close()
@@ -238,6 +248,7 @@ class LRParser:
         self.map = {0: {}}
         while True:
             J = None
+            print('gen fa', time.time())
             for i in range(len(T)):
                 #Break()
                 if i not in self.map:
@@ -265,22 +276,54 @@ class LRParser:
                         index = self.index[T[i]]
                         if index not in self.map:
                             self.map[index] = {}
-                        self.map[index] |= {index: X}
+                        # the fix: self.map[index] |= {index: X}
+                        #          this always create a self edge.
+                        self.map[index] |= {self.index[t]: X}
                     # print(line().f_lineno, 'T:', T)
             # print(line().f_lineno, J)
             # print(line().f_lineno, 'LRParser.init: T =', T)
             if J == None:
                 break
-        for I in T:
-            print(len(I), I)
+        print('gen fa done at', time.time())
         self.T = T
-        print('T:', T)
-        print('index:', self.index)
-        print('map:', self.map)
+        print('T:')
+        for i, v in enumerate(self.T):
+            print(i, len(v), v)
+        print('index:')
+        for k, v in self.index.items():
+            print(f'{v}: {k}')
+        print('map:')
+        for k, v in self.map.items():
+            print(k, v)
         # TODO: Generate shift, goto and reduce form.
         # For the case of shift/recuce conflict, raise error.
         self.TableCreat()
         self.MarkDown(g.filename + '.md')
+        self.Draw(g.filename + '.dot')
+
+    def Draw(self, filename):
+        if filename == None:
+            f = sys.stdout
+        else:
+            f = open(filename, 'wt')
+        print('digraph G {', file=f)
+        def PrintNodes(T):
+            for i, n in enumerate(T):
+                s = []
+                for p in n:
+                    s.append(ColorDelete(str(p)))
+                s = '\\n'.join(s)
+                print(f'  {i} [shape=box,label="I{i}\\n{s}"];', file=f)
+        def PrintEdges(m):
+            for u, k in m.items():
+                for v, e in k.items():
+                    e = ColorDelete(str(e))
+                    print(f'  {u} -> {v} [label="{e}"];', file=f)
+        PrintNodes(self.T)
+        PrintEdges(self.map)
+        print('}', file=f)
+        f.close()
+
 if __name__ == '__main__':
     g = grammar.Grammar(sys.argv[1])
     LRParser(g)

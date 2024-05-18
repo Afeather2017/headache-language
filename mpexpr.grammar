@@ -2,16 +2,12 @@
 E E' T T' F
 S
 S -> E '$'
-# exit
 E -> T E'
 E' -> '+' T E'
-# add T1 T1 T0
 E' -> ''
 T -> F T'
 T' -> '*' F T'
-# mult T1 T1 T0
 T' -> ''
 F -> '(' E ')'
 F -> 'm'
-# push m
 
