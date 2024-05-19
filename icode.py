@@ -14,7 +14,7 @@ cmd_pos = 0
 def Nothing():
     pass
 # mode are F, T, B, means false, true, break
-debug = 'T'
+debug = 'F'
 Break = ipdb.set_trace if debug == 'B' else Nothing
 reg = r'((?:"(?:(?:\\.)|[^"])*")|\d+|(?::{0,1}\w+:{0,1}))'
 for line in open(sys.argv[1]).read().split('\n'):

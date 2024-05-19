@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 import grammar
 import llparsergen
-import lalrparsergen
-import lr1parsergen
 import ipdb
 import time
 import sys

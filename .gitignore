@@ -1,1 +1,4 @@
 __py*
+*.hasm
+*.md
+*.dot

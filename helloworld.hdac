@@ -22,7 +22,7 @@ while (r < 8) {
 }
 r = (--99 * ---88 and 1) + 5 * 2;
 print(r);
-print("th term of Fibonacci is ");
+print("st term of Fibonacci is ");
 print(Fibonacci(r));
 print("\n");
 print("Print a table of numbers\n");
